@@ -1,0 +1,12 @@
+F:\Projects\AppTokenCSharpExample\AppTokenCSharpExample\bin\Debug\AppTokenCSharpExample.exe.config
+F:\Projects\AppTokenCSharpExample\AppTokenCSharpExample\bin\Debug\AppTokenCSharpExample.exe
+F:\Projects\AppTokenCSharpExample\AppTokenCSharpExample\bin\Debug\AppTokenCSharpExample.pdb
+F:\Projects\AppTokenCSharpExample\AppTokenCSharpExample\obj\Debug\AppTokenCSharpExample.csprojAssemblyReference.cache
+F:\Projects\AppTokenCSharpExample\AppTokenCSharpExample\obj\Debug\AppTokenCSharpExample.csproj.CoreCompileInputs.cache
+F:\Projects\AppTokenCSharpExample\AppTokenCSharpExample\obj\Debug\AppTokenCSharpExample.exe
+F:\Projects\AppTokenCSharpExample\AppTokenCSharpExample\obj\Debug\AppTokenCSharpExample.pdb
+F:\Projects\AppTokenCSharpExample\AppTokenCSharpExample\bin\Debug\Newtonsoft.Json.dll
+F:\Projects\AppTokenCSharpExample\AppTokenCSharpExample\bin\Debug\Newtonsoft.Json.xml
+F:\Projects\AppTokenCSharpExample\AppTokenCSharpExample\obj\Debug\AppTokenCSharpExample.csproj.CopyComplete
+F:\Projects\AppTokenCSharpExample\AppTokenCSharpExample\bin\Debug\RestSharp.dll
+F:\Projects\AppTokenCSharpExample\AppTokenCSharpExample\bin\Debug\RestSharp.xml
