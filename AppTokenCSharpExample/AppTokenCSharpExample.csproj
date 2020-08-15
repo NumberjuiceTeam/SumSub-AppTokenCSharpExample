@@ -96,7 +96,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="resources\sumsub-logo-small.png" />
     <Content Include="resources\sumsub-logo.jpg" />
     <Content Include="resources\sumsub-logo.png" />
   </ItemGroup>
