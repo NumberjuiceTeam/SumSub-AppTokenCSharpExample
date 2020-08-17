@@ -157,7 +157,8 @@ namespace AppTokenCSharpExample
                 // Then perhaps you should throw the exception. (depends on the logic of your code)
             }
 
-            var jsonStr = response.Content.ReadAsStringAsync().Result;
+            // debug
+            //var debugInfo = response.Content.ReadAsStringAsync().Result;
             return response;
         }
 
