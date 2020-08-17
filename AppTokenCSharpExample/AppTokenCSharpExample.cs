@@ -14,8 +14,8 @@ namespace AppTokenCSharpExample
     class AppTokenCSharpExample
     {
         // The description of the authorization method is available here: https://developers.sumsub.com/api-reference/#app-tokens
-        private static readonly string SUMSUB_SECRET_KEY = "SUMSUB_SECRET_KEY"; // Example: Hej2ch71kG2kTd1iIUDZFNsO5C1lh5Gq
-        private static readonly string SUMSUB_APP_TOKEN = "SUMSUB_APP_TOKEN";  // Example: tst:uY0CgwELmgUAEyl4hNWxLngb.0WSeQeiYny4WEqmAALEAiK2qTC96fBad
+        private static readonly string SUMSUB_SECRET_KEY = "qu0bFq2eqSxE0DwN90Pc426ZjskbO3aY"; // Example: Hej2ch71kG2kTd1iIUDZFNsO5C1lh5Gq
+        private static readonly string SUMSUB_APP_TOKEN = "tst:rWqHUuaoK916i1T97hosnC5f.z7iAstUUJAwm9klJl9qboMvDhCpC35fg";  // Example: tst:uY0CgwELmgUAEyl4hNWxLngb.0WSeQeiYny4WEqmAALEAiK2qTC96fBad
         private static readonly string SUMSUB_TEST_BASE_URL = "https://test-api.sumsub.com";  // Please don't forget to change when switching to production
 
         static void Main(string[] args)
@@ -28,23 +28,16 @@ namespace AppTokenCSharpExample
             // 3) Getting applicant status
             // 4) Getting access token
 
-
-            // string applicantId = CreateApplicant().Result.id;
-
-
-            string applicantId = "";
-
-            // Get Applicant Status
-            // var getApplicantResult = GetApplicantStatus(applicantId).Result;
-            //  Console.WriteLine("Applicant status (json string): " + ContentToString(response.Content));
-
-
-            //  var accessTokenResult = GetAccessToken("5f33b068155a636f9a627659").Result;
-            //  Console.WriteLine("Access token Result: " + ContentToString(accessTokenResult.Content));
-
-
+            string applicantId = CreateApplicant().Result.id;
             var addDocumentResult = AddDocument(applicantId).Result;
             Console.WriteLine("Add Document Result: " + ContentToString(addDocumentResult.Content));
+
+            // Get Applicant Status
+            var getApplicantResult = GetApplicantStatus(applicantId).Result;
+            Console.WriteLine("Applicant status (json string): " + ContentToString(getApplicantResult.Content));
+
+            var accessTokenResult = GetAccessToken("5f3a4da3aee05c1388f2cd7c").Result;
+            Console.WriteLine("Access token Result: " + ContentToString(accessTokenResult.Content));
 
             // Important: please keep this line as async tasks that end unexpectedly will close console window before showing the error.
             Console.ReadLine();
@@ -70,8 +63,7 @@ namespace AppTokenCSharpExample
 
             // Create the request body
             var requestBody = new HttpRequestMessage(HttpMethod.Post, SUMSUB_TEST_BASE_URL);
-            requestBody.Headers.Add("Accept", "multipart/form-data");
-            requestBody.Content = new StringContent(JsonConvert.SerializeObject(body));
+            requestBody.Content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
 
             // Get the response
             var response = await SendPost("/resources/applicants", requestBody);
@@ -116,7 +108,7 @@ namespace AppTokenCSharpExample
                 Console.WriteLine(response.IsSuccessStatusCode
                     ? $"Document was successfully added"
                     : $"ERROR: {ContentToString(response.Content)}");
-                
+
                 return response;
             }
         }
@@ -192,21 +184,6 @@ namespace AppTokenCSharpExample
             return response;
         }
 
-        //private static string CreateSignature(long ts, HttpMethod httpMethod, string path, string body)
-        //{
-        //    Console.WriteLine("Creating a signature for the request...");
-        //    var hmacsha256 = new HMACSHA256(Encoding.ASCII.GetBytes(SUMSUB_SECRET_KEY));
-        //    byte[] byteArray;
-
-        //    byteArray = Encoding.ASCII.GetBytes(ts + httpMethod.Method + path + body);
-
-        //    var stream = new MemoryStream(byteArray);
-        //    var result = hmacsha256.ComputeHash(stream).Aggregate("", (s, e) => s + String.Format("{0:x2}", e), s => s);
-
-        //    return result;
-        //}
-
-
         private static string CreateSignature(long ts, HttpMethod httpMethod, string path, byte[] body)
         {
             Console.WriteLine("Creating a signature for the request...");
@@ -236,13 +213,15 @@ namespace AppTokenCSharpExample
             if (httpContent == null)
                 return "";
 
-            var readAsStringAsync = httpContent.ReadAsStringAsync();
-            return readAsStringAsync.Result;
+            return httpContent.ReadAsStringAsync().Result;
         }
 
 
         public static byte[] RequestBodyToBytes(HttpRequestMessage requestBody)
         {
+            if (requestBody.Content == null)
+                return new byte[] { };
+
             return requestBody.Content.ReadAsByteArrayAsync().Result;
         }
     }
