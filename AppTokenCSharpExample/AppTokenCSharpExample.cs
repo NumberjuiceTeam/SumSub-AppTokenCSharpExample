@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace AppTokenCSharpExample
 {
@@ -20,8 +14,8 @@ namespace AppTokenCSharpExample
     class AppTokenCSharpExample
     {
         // The description of the authorization method is available here: https://developers.sumsub.com/api-reference/#app-tokens
-        private static readonly string SUMSUB_SECRET_KEY = "qu0bFq2eqSxE0DwN90Pc426ZjskbO3aY"; // Example: Hej2ch71kG2kTd1iIUDZFNsO5C1lh5Gq
-        private static readonly string SUMSUB_APP_TOKEN = "tst:rWqHUuaoK916i1T97hosnC5f.z7iAstUUJAwm9klJl9qboMvDhCpC35fg";  // Example: tst:uY0CgwELmgUAEyl4hNWxLngb.0WSeQeiYny4WEqmAALEAiK2qTC96fBad
+        private static readonly string SUMSUB_SECRET_KEY = "SUMSUB_SECRET_KEY"; // Example: Hej2ch71kG2kTd1iIUDZFNsO5C1lh5Gq
+        private static readonly string SUMSUB_APP_TOKEN = "SUMSUB_APP_TOKEN";  // Example: tst:uY0CgwELmgUAEyl4hNWxLngb.0WSeQeiYny4WEqmAALEAiK2qTC96fBad
         private static readonly string SUMSUB_TEST_BASE_URL = "https://test-api.sumsub.com";  // Please don't forget to change when switching to production
 
         static void Main(string[] args)
@@ -38,7 +32,7 @@ namespace AppTokenCSharpExample
             // string applicantId = CreateApplicant().Result.id;
 
 
-            string applicantId = "5f32c251155a6349896410df";
+            string applicantId = "";
 
             // Get Applicant Status
             // var getApplicantResult = GetApplicantStatus(applicantId).Result;
