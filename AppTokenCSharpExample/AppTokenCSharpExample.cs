@@ -17,7 +17,6 @@ namespace AppTokenCSharpExample
         private static readonly string SUMSUB_APP_TOKEN = "SUMSUB_APP_TOKEN";  // Example: tst:uY0CgwELmgUAEyl4hNWxLngb.0WSeQeiYny4WEqmAALEAiK2qTC96fBad
         private static readonly string SUMSUB_TEST_BASE_URL = "https://test-api.sumsub.com";  // Please don't forget to change when switching to production
 
-
         private static void Main(string[] args)
         {
             // The description of the flow can be found here: https://developers.sumsub.com/api-flow/#api-integration-phases
