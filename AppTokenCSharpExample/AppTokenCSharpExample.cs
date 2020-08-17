@@ -134,7 +134,7 @@ namespace AppTokenCSharpExample
             return response;
         }
 
-        public static async Task<HttpResponseMessage> SendPost(string url, HttpRequestMessage requestBody)
+        private static async Task<HttpResponseMessage> SendPost(string url, HttpRequestMessage requestBody)
         {
 
             var ts = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
@@ -210,14 +210,12 @@ namespace AppTokenCSharpExample
             return result;
         }
 
-
-        public static string ContentToString(HttpContent httpContent)
+        private static string ContentToString(HttpContent httpContent)
         {
             return httpContent == null ? "" : httpContent.ReadAsStringAsync().Result;
         }
 
-
-        public static byte[] RequestBodyToBytes(HttpRequestMessage requestBody)
+        private static byte[] RequestBodyToBytes(HttpRequestMessage requestBody)
         {
             return requestBody.Content == null ? 
                 new byte[] { } : requestBody.Content.ReadAsByteArrayAsync().Result;
