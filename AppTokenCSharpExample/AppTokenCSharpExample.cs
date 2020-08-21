@@ -39,7 +39,7 @@ namespace AppTokenCSharpExample
             Console.WriteLine("Applicant status (json string): " + ContentToString(getApplicantResult.Content));
 
             // Get access token
-            var accessTokenResult = GetAccessToken("5f3a4da3aee05c1388f2cd7c").Result;
+            var accessTokenResult = GetAccessToken(applicantId).Result;
             Console.WriteLine("Access token Result: " + ContentToString(accessTokenResult.Content));
 
             // Important: please keep this line as async tasks that end unexpectedly will close console window before showing the error.
